@@ -474,19 +474,19 @@
             <tbody>
                 <tr>
                     <th><label for="import_csv"><?php _e( 'File to Import', 'woo-product-importer' ); ?></label></th>
-                    <td><input type="file" name="import_csv" id="import_csv"></td>
+                    <td><input type="file" name="import_csv" id="import_csv" value="<?php echo isset($_POST['import_csv']) ? $_POST['import_csv'] : '' ?>"></td>
                 </tr>
                 <tr>
                     <th><label for="import_csv_url"><?php _e( 'URL to Import', 'woo-product-importer' ); ?></label></th>
                     <td>
-                        <input type="text" name="import_csv_url" id="import_csv_url" class="regular-text code">
+                        <input type="text" name="import_csv_url" id="import_csv_url" class="regular-text code" value="<?php echo isset($_POST['import_csv_url']) ? $_POST['import_csv_url'] : '' ?>">
                         <p class="description"><?php _e( 'Enter the full URL to a CSV file. Leave this field blank if uploading a file.', 'woo-product-importer' ); ?></p>
                     </td>
                 </tr>
                 <tr>
                     <th></th>
                     <td>
-                        <input type="checkbox" name="header_row" id="header_row" value="1">
+                        <input type="checkbox" name="header_row" id="header_row" value="1" <?php echo isset($_POST['header_row']) ? "checked" : '' ?>>
                         <label for="header_row"><?php _e( 'First Row is Header Row', 'woo-product-importer' ); ?></label>
                     </td>
                 </tr>
@@ -514,14 +514,14 @@
                     <tr>
                         <th><?php _e( 'CSV field separator', 'woo-product-importer' ); ?></th>
                         <td>
-                            <input type="text" name="import_csv_separator" id="import_csv_separator" class="code" value="," maxlength="1">
+                            <input type="text" name="import_csv_separator" id="import_csv_separator" class="code" value="," maxlength="1" value="<?php echo isset($_POST['import_csv_separator']) ? $_POST['import_csv_separator'] : '' ?>">
                             <p class="description"><?php _e( 'Enter the character used to separate each field in your CSV. The default is the comma (,) character. Some formats use a semicolon (;) instead.', 'woo-product-importer' ); ?></p>
                         </td>
                     </tr>
                     <tr>
                         <th><?php _e( 'Category hierarchy separator', 'woo-product-importer' ); ?></th>
                         <td>
-                            <input type="text" name="import_csv_hierarchy_separator" id="import_csv_hierarchy_separator" class="code" value="/" maxlength="1">
+                            <input type="text" name="import_csv_hierarchy_separator" id="import_csv_hierarchy_separator" class="code" maxlength="1" value="<?php echo isset($_POST['import_csv_hierarchy_separator']) ? $_POST['import_csv_hierarchy_separator'] : '/' ?>">
                             <p class="description"><?php _e( 'Enter the character used to separate categories in a hierarchical structure. The default is the forward-slash (/) character.', 'woo-product-importer' ); ?></p>
                         </td>
                     </tr>
@@ -532,7 +532,7 @@
                                 <ul class="import_error_messages">
                                     <li><?php _e( 'Couldn\'t get a list of available locales from your server.', 'woo-product-importer' ); ?></li>
                                 </ul>
-                                <input type="text" name="user_locale" id="user_locale" class="code">
+                                <input type="text" name="user_locale" id="user_locale" class="code" value="<?php echo isset($_POST['user_locale']) ? $_POST['user_locale'] : '/' ?>">
                                 <p class="description"><a href="http://webpresencepartners.com/2013/04/28/a-list-of-common-locale-codes/" target="_blank"><?php _e( 'A list of common locale codes is available here.', 'woo-product-importer' ); ?></a></p>
                             <?php else: ?>
                                 <select name="user_locale" id="user_locale">

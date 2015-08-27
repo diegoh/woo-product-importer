@@ -82,7 +82,7 @@
         $inserted_rows = array();
 
         // lookup existing product attributes
-        $attribute_taxonomies = $woocommerce->get_attribute_taxonomies(); 
+        $attribute_taxonomies = wc_get_attribute_taxonomies(); 
         if (! is_array($attribute_taxonomies)) $attribute_taxonomies = array();
 
         //this is where the fun begins
@@ -292,6 +292,7 @@
 
                     case 'product_cat_by_name':
                     case 'product_tag_by_name':
+                    case 'product_brand_by_name':
                     case 'product_shipping_class_by_name':
                         $tax = str_replace('_by_name', '', $map_to);
                         $term_paths = explode('|', $col);
@@ -330,6 +331,7 @@
 
                     case 'product_cat_by_id':
                     case 'product_tag_by_id':
+                    case 'product_brand_by_id':
                     case 'product_shipping_class_by_id':
                         $tax = str_replace('_by_id', '', $map_to);
                         $term_ids = explode('|', $col);
@@ -357,7 +359,7 @@
                         foreach($attribute_taxonomies as $attr){
                             if (! is_object($attr)) continue;
                             if (strtolower($field_name) === strtolower($attr->attribute_name) &&
-                                taxonomy_exists( $woocommerce->attribute_taxonomy_name( $attr->attribute_name))){
+                                taxonomy_exists( wc_attribute_taxonomy_name( $attr->attribute_name))){
                                 $product_attr = $attr;
                                 break;
                             } 
@@ -366,7 +368,7 @@
                         // existing attribute
                         if (! is_null($product_attr)){ 
                             // check if this is a new term(s) for the attribute 
-                            $field_name = $woocommerce->attribute_taxonomy_name($product_attr->attribute_name);
+                            $field_name = wc_attribute_taxonomy_name($product_attr->attribute_name);
                             $value = '';
                             $terms = explode('|', $col); 
                             foreach($terms as $t) {

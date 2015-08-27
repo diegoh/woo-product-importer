@@ -226,12 +226,21 @@
         'product_cat_by_id' => array(
             'label' => __( 'Categories By ID (Separated by "|")', 'woo-product-importer' ),
             'mapping_hints' => array()),
+        
         'product_tag_by_name' => array(
             'label' => __( 'Tags By Name (Separated by "|")', 'woo-product-importer' ),
             'mapping_hints' => array('tag', 'tags', 'product tag', 'product tags', 'product_tag')),
         'product_tag_by_id' => array(
             'label' => __( 'Tags By ID (Separated by "|")', 'woo-product-importer' ),
             'mapping_hints' => array()),
+        
+        'product_brand_by_name' => array(
+            'label' => __( 'Brand By Name (Separated by "|")', 'woo-product-importer' ),
+            'mapping_hints' => array('product_brand', 'brand', 'brands', 'product brand', 'product brands', 'product_brand')),
+        'product_brand_by_id' => array(
+            'label' => __( 'Brand By ID (Separated by "|")', 'woo-product-importer' ),
+            'mapping_hints' => array()),
+
 
         'optgroup_custom' => array(
             'optgroup' => true,
